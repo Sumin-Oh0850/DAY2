@@ -3,23 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>카운터</title>
+  <title>화면 부품 지도</title>
   <style>
-    body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; margin-top: 80px; }
-    #count { font-size: 4rem; margin-bottom: 20px; }
-    button { font-size: 1.2rem; padding: 10px 24px; cursor: pointer; }
+    * { box-sizing: border-box; }
+    body { font-family: sans-serif; max-width: 640px; margin: 24px auto; padding: 0 16px; background: #f4f5f7; }
+    h1 { font-size: 1.1rem; }
+    .part { position: relative; border: 2px dashed #e55; margin: 26px 0 10px; padding: 16px; background: #fff; }
+    .part .part { margin-top: 24px; }
+    .tag { position: absolute; top: -13px; left: 8px; background: #e55; color: #fff; font-size: .75rem; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+    .hd { background: #2b6cb0; color: #fff; text-align: center; font-weight: bold; }
+    .ft { background: #222; color: #ccc; text-align: center; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    nav li { padding: 6px 14px; color: #2b6cb0; border: 1px solid #ccd; }
+    .card { text-align: center; }
+    button { font-size: 1rem; padding: 8px 20px; border: 0; border-radius: 8px; background: #2b6cb0; color: #fff; cursor: pointer; }
+    table { border-collapse: collapse; width: 100%; margin-top: 28px; background: #fff; }
+    th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+    .no { color: #999; }
   </style>
 </head>
 <body>
-  <div id="count">0</div>
-  <button id="btn">+2</button>
-  <script>
-    let count = 0;
-    const el = document.getElementById('count');
-    document.getElementById('btn').addEventListener('click', () => {
-      count += 2;
-el.textContent = count;
-    });
-  </script>
+  <h1>index.html 화면 부품 이름표</h1>
+
+  <div class="part hd"><span class="tag">헤더</span>내 취향 카드</div>
+
+  <div class="part">
+    <span class="tag">탭 (메뉴 바)</span>
+    <nav>
+      <div class="part" style="padding:10px">
+        <span class="tag">목록 (ul/li)</span>
+        <ul><li>홈</li><li>취향</li><li>카드</li><li>소개</li></ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="part card">
+    <span class="tag">카드 (응원 카운터)</span>
+    <div style="font-size:2.5rem">0</div>
+    <div class="part" style="display:inline-block;padding:6px 10px"><span class="tag">버튼</span><button>+2</button></div>
+  </div>
+
+  <div class="part card"><span class="tag">카드 (홍보 문구 × 10개)</span>제주대학교 홍보 문구 카드가 세로로 반복됩니다.</div>
+
+  <div class="part ft"><span class="tag">푸터</span>&copy; 2026 내 취향 카드</div>
+
+  <table>
+    <tr><th>부품</th><th>index.html 상태</th></tr>
+    <tr><td>헤더</td><td>있음 (&lt;header&gt;)</td></tr>
+    <tr><td>카드</td><td>있음 (11개)</td></tr>
+    <tr><td>버튼</td><td>있음 (+2 버튼 1개)</td></tr>
+    <tr><td>목록</td><td>있음 (메뉴의 ul/li 4개)</td></tr>
+    <tr><td>탭</td><td>메뉴 바가 탭 역할, 클릭 전환 기능은 없음</td></tr>
+    <tr><td>입력창</td><td class="no">없음</td></tr>
+  </table>
 </body>
 </html>
