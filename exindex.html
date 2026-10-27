@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 취향 카드</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: sans-serif; background: #f4f5f7; color: #222; min-height: 100vh; display: flex; flex-direction: column; }
+    header { background: #2b6cb0; color: #fff; padding: 20px 16px; text-align: center; }
+    header h1 { margin: 0; font-size: 1.5rem; }
+    nav { background: #fff; border-bottom: 1px solid #ddd; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; }
+    nav a { display: block; padding: 14px 20px; color: #2b6cb0; text-decoration: none; }
+    nav a:hover { background: #ebf4ff; }
+    main { flex: 1; padding: 24px 16px; }
+    .wrap { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.1); padding: 24px; text-align: center; }
+    .promo p { margin: 6px 0; line-height: 1.6; }
+    .card h2 { margin-top: 0; }
+    #count { font-size: 4rem; margin: 12px 0 20px; }
+    button { font-size: 1.2rem; padding: 10px 24px; cursor: pointer; border: 0; border-radius: 8px; background: #2b6cb0; color: #fff; }
+    button:hover { background: #245a94; }
+    footer { background: #222; color: #ccc; text-align: center; padding: 16px; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>내 취향 카드</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">홈</a></li>
+      <li><a href="#">취향</a></li>
+      <li><a href="#">카드</a></li>
+      <li><a href="#">소개</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="wrap">
+      <section class="card">
+        <h2>제주대학교 응원 카운터</h2>
+        <div id="count">0</div>
+        <button id="btn">+2</button>
+      </section>
+
+      <section class="card promo">
+        <h2>🌊 제주대학교에 오신 것을 환영합니다</h2>
+        <p>바다와 한라산 사이에서 꿈을 키우는 대학,</p>
+        <p>제주의 자연과 함께 성장하는 대학,</p>
+        <p>제주대학교가 여러분의 내일을 응원합니다.</p>
+      </section>
+
+      <section class="card promo">
+        <h2>🏫 우리 대학은</h2>
+        <p>1952년 문을 연 이래 제주의 인재를 길러 왔습니다.</p>
+        <p>제주를 대표하는 국립대학으로서 지역과 함께 걸어왔습니다.</p>
+        <p>오랜 역사 위에 새로운 도전을 쌓아 갑니다.</p>
+        <p>배움의 터전이자 지역의 든든한 울타리입니다.</p>
+        <p>제주의 과거를 기억하고 미래를 설계합니다.</p>
+        <p>믿고 맡길 수 있는 대학, 제주대학교입니다.</p>
+      </section>
+
+      <section class="card promo">
+        <h2>🌿 자연 속의 캠퍼스</h2>
+        <p>한라산 자락이 보이는 아름다운 캠퍼스에서 공부합니다.</p>
+        <p>계절마다 다른 풍경이 캠퍼스를 물들입니다.</p>
+        <p>봄에는 벚꽃이 길을 따라 피어납니다.</p>
+        <p>여름에는 푸른 나무 그늘이 쉼터가 됩니다.</p>
+        <p>가을에는 하늘이 높아지고 산책길이 깊어집니다.</p>
+        <p>겨울에는 멀리 한라산 설경이 눈을 맑게 합니다.</p>
+        <p>걷기만 해도 마음이 차분해지는 공간입니다.</p>
+        <p>자연과 학문이 어우러지는 곳입니다.</p>
+      </section>
+
+      <section class="card promo">
+        <h2>📚 배움의 즐거움</h2>
+        <p>다양한 전공에서 나의 길을 찾을 수 있습니다.</p>
+        <p>인문, 사회, 자연, 공학, 예술까지 폭넓게 배웁니다.</p>
+        <p>교수님과 학생이 가까이서 소통합니다.</p>
+        <p>질문하는 학생을 환영합니다.</p>
+        <p>토론하고 실험하며 생각의 힘을 기릅니다.</p>
+        <p>이론에서 멈추지 않고 현장에서 배웁니다.</p>
+        <p>스스로 설계하는 학습을 지원합니다.</p>
+        <p>도서관에서 깊이 있는 공부를 이어 갑니다.</p>
+        <p>호기심이 곧 실력이 되는 곳입니다.</p>
+      </section>
+
+      <section class="card promo">
+        <h2>🔬 연구와 도전</h2>
+        <p>제주의 환경과 자원을 연구합니다.</p>
+        <p>해양, 농업, 관광 등 지역 특성을 살린 연구가 활발합니다.</p>
+        <p>학생도 연구의 주인공이 될 수 있습니다.</p>
+        <p>작은 아이디어가 큰 성과로 이어집니다.</p>
+        <p>실패를 두려워하지 않는 도전을 응원합니다.</p>
+        <p>창업을 꿈꾸는 학생을 함께 돕습니다.</p>
+        <p>새로운 기술과 만나는 기회를 열어 줍니다.</p>
+        <p>세계와 소통하는 연구를 지향합니다.</p>
+      </section>
+
+      <section class="card promo">
+        <h2>🍊 지역과 함께</h2>
+        <p>제주 감귤처럼 향기롭고 알찬 성장을 이룹니다.</p>
+        <p>지역 사회와 손잡고 문제를 함께 풀어 갑니다.</p>
+        <p>제주의 문화와 전통을 소중히 이어 갑니다.</p>
+        <p>도민과 함께 호흡하는 열린 대학입니다.</p>
+        <p>지역 인재가 지역에서 꿈을 펼치도록 돕습니다.</p>
+        <p>봉사와 나눔이 일상인 캠퍼스입니다.</p>
+        <p>제주의 내일을 만드는 힘이 되겠습니다.</p>
+        <p>특산물과 관광, 환경까지 지역의 가치를 높입니다.</p>
+      </section>
+
+      <section class="card promo">
+        <h2>🌏 세계로 열린 문</h2>
+        <p>해외 대학과의 교류로 시야를 넓힙니다.</p>
+        <p>유학생과 함께 배우는 글로벌 캠퍼스입니다.</p>
+        <p>다양한 언어와 문화를 만나는 경험을 합니다.</p>
+        <p>교환학생으로 세계를 직접 만나 보세요.</p>
+        <p>제주에서 세계로, 세계에서 제주로 이어집니다.</p>
+        <p>국제적인 감각을 갖춘 인재로 성장합니다.</p>
+        <p>다름을 존중하는 열린 마음을 배웁니다.</p>
+      </section>
+
+      <section class="card promo">
+        <h2>🎉 캠퍼스 라이프</h2>
+        <p>동아리 활동으로 취미와 친구를 함께 얻습니다.</p>
+        <p>축제 기간에는 캠퍼스 전체가 설렘으로 가득합니다.</p>
+        <p>체육 활동으로 건강한 대학 생활을 누립니다.</p>
+        <p>문화 공연과 전시가 일상 가까이에 있습니다.</p>
+        <p>학생 식당과 카페에서 여유로운 시간을 보냅니다.</p>
+        <p>밤하늘 아래 친구와 나누는 이야기가 추억이 됩니다.</p>
+        <p>공부와 쉼의 균형을 응원합니다.</p>
+        <p>함께 웃는 순간이 가장 큰 자산입니다.</p>
+      </section>
+
+      <section class="card promo">
+        <h2>💼 든든한 미래 준비</h2>
+        <p>진로 상담으로 나에게 맞는 길을 찾습니다.</p>
+        <p>취업과 진학 정보를 체계적으로 지원합니다.</p>
+        <p>선배와 후배가 이어 주는 네트워크가 있습니다.</p>
+        <p>현장 실습으로 사회 경험을 미리 쌓습니다.</p>
+        <p>자격증과 역량 개발 프로그램을 제공합니다.</p>
+        <p>졸업 후에도 응원하는 동문이 함께합니다.</p>
+        <p>꿈을 현실로 만드는 든든한 발판이 됩니다.</p>
+      </section>
+
+      <section class="card promo">
+        <h2>💙 학생을 먼저 생각합니다</h2>
+        <p>장학 제도로 배움의 기회를 넓힙니다.</p>
+        <p>기숙사와 복지 시설로 편안한 생활을 돕습니다.</p>
+        <p>상담 지원으로 마음의 건강도 챙깁니다.</p>
+        <p>안전한 캠퍼스를 위해 노력합니다.</p>
+        <p>학생의 목소리에 귀 기울입니다.</p>
+        <p>모든 학생이 존중받는 문화를 만듭니다.</p>
+      </section>
+
+      <section class="card promo">
+        <h2>✨ 마치며</h2>
+        <p>푸른 바다와 한라산이 함께하는 곳,</p>
+        <p>꿈이 자라고 생각이 깊어지는 곳,</p>
+        <p>그곳이 바로 제주대학교입니다.</p>
+        <p>여러분의 첫걸음을 진심으로 환영합니다.</p>
+        <p><strong>제주대학교와 함께 더 높이, 더 멀리!</strong></p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 내 취향 카드</p>
+  </footer>
+
+  <script>
+    let count = 0;
+    const el = document.getElementById('count');
+    document.getElementById('btn').addEventListener('click', () => {
+      count += 2;
+      el.textContent = count;
+    });
+  </script>
+</body>
+</html>
