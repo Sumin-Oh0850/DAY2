@@ -3,58 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>화면 부품 지도</title>
+  <title>제주 특산물 이야기</title>
   <style>
     * { box-sizing: border-box; }
-    body { font-family: sans-serif; max-width: 640px; margin: 24px auto; padding: 0 16px; background: #f4f5f7; }
-    h1 { font-size: 1.1rem; }
-    .part { position: relative; border: 2px dashed #e55; margin: 26px 0 10px; padding: 16px; background: #fff; }
-    .part .part { margin-top: 24px; }
-    .tag { position: absolute; top: -13px; left: 8px; background: #e55; color: #fff; font-size: .75rem; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
-    .hd { background: #2b6cb0; color: #fff; text-align: center; font-weight: bold; }
-    .ft { background: #222; color: #ccc; text-align: center; }
-    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-    nav li { padding: 6px 14px; color: #2b6cb0; border: 1px solid #ccd; }
-    .card { text-align: center; }
-    button { font-size: 1rem; padding: 8px 20px; border: 0; border-radius: 8px; background: #2b6cb0; color: #fff; cursor: pointer; }
-    table { border-collapse: collapse; width: 100%; margin-top: 28px; background: #fff; }
-    th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
-    .no { color: #999; }
+    body { margin: 0; font-family: sans-serif; background: #fff8ee; color: #333; line-height: 1.7; }
+    .page { max-width: 960px; margin: 0 auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+    header { background: linear-gradient(135deg, #ff9f1c, #f77f00); color: #fff; text-align: center; padding: 32px 16px; border-radius: 12px; }
+    header h1 { margin: 0 0 6px; font-size: 2rem; }
+    header p { margin: 0; }
+    nav { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.1); }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; }
+    nav a { display: block; padding: 14px 22px; color: #e36414; text-decoration: none; font-weight: bold; }
+    nav a:hover { background: #fff1de; border-radius: 12px; }
+    .content { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: auto auto; gap: 12px; }
+    section, article, aside { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.1); padding: 22px; }
+    section { grid-column: 1; grid-row: 1; }
+    article { grid-column: 1; grid-row: 2; }
+    aside { grid-column: 2; grid-row: 1 / span 2; background: #fff1de; }
+    h2 { margin-top: 0; color: #e36414; }
+    h3 { margin-bottom: 4px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .item { background: #fff8ee; border-radius: 10px; padding: 12px; text-align: center; }
+    .item .emoji { font-size: 2rem; }
+    ul.list { padding-left: 20px; }
+    footer { background: #333; color: #ddd; text-align: center; padding: 18px; border-radius: 12px; font-size: .9rem; }
+    button { background: #f77f00; color: #fff; border: 0; border-radius: 8px; padding: 10px 20px; font-size: 1rem; cursor: pointer; }
+    button:hover { background: #e36414; }
+    #count { font-size: 2rem; font-weight: bold; }
+    @media (max-width: 700px) {
+      .content { grid-template-columns: 1fr; }
+      section, article, aside { grid-column: 1; grid-row: auto; }
+    }
   </style>
 </head>
 <body>
-  <h1>index.html 화면 부품 이름표</h1>
+  <div class="page">
+    <header>
+      <h1>🍊 제주 특산물 이야기 🌴</h1>
+      <p>바람과 돌, 바다가 키워 낸 제주의 맛을 소개합니다</p>
+    </header>
 
-  <div class="part hd"><span class="tag">헤더</span>내 취향 카드</div>
-
-  <div class="part">
-    <span class="tag">탭 (메뉴 바)</span>
     <nav>
-      <div class="part" style="padding:10px">
-        <span class="tag">목록 (ul/li)</span>
-        <ul><li>홈</li><li>취향</li><li>카드</li><li>소개</li></ul>
-      </div>
+      <ul>
+        <li><a href="#citrus">감귤</a></li>
+        <li><a href="#pork">흑돼지</a></li>
+        <li><a href="#sea">해산물</a></li>
+        <li><a href="#etc">기타</a></li>
+        <li><a href="#tips">구매 안내</a></li>
+      </ul>
     </nav>
+
+    <div class="content">
+      <section id="citrus">
+        <h2>🍊 제주 감귤</h2>
+        <p>제주를 대표하는 과일입니다. 따뜻한 기후와 화산 토양에서 자라 새콤달콤한 맛이 좋습니다. 노지 감귤은 보통 늦가을부터 겨울까지 맛볼 수 있습니다.</p>
+        <div class="grid">
+          <div class="item"><div class="emoji">🍊</div><strong>노지 감귤</strong><br>새콤달콤 겨울 과일</div>
+          <div class="item"><div class="emoji">🟠</div><strong>한라봉</strong><br>향이 진한 만감류</div>
+          <div class="item"><div class="emoji">🍋</div><strong>천혜향·레드향</strong><br>부드럽고 달콤한 맛</div>
+        </div>
+      </section>
+
+      <article id="pork">
+        <h2>🐖 흑돼지와 🐟 해산물</h2>
+        <h3 id="sea">제주 흑돼지</h3>
+        <p>쫄깃한 식감과 고소한 맛이 특징으로, 숯불에 구워 먹는 방식이 대표적입니다.</p>
+        <h3>바다의 선물</h3>
+        <ul class="list">
+          <li>갈치: 조림과 구이로 즐기는 대표 생선</li>
+          <li>옥돔: 담백한 구이로 인기</li>
+          <li>전복·소라·성게: 해녀가 채취하는 바다 먹거리</li>
+          <li>자리돔: 여름 별미 물회</li>
+        </ul>
+        <h3 id="etc">그 밖의 특산물</h3>
+        <ul class="list">
+          <li>🍵 제주 녹차</li>
+          <li>🥕 겨울 당근</li>
+          <li>🍠 제주 고구마</li>
+          <li>🍡 오메기떡</li>
+        </ul>
+      </article>
+
+      <aside id="tips">
+        <h2>📌 알아두면 좋아요</h2>
+        <ul class="list">
+          <li>감귤은 겨울이 제철입니다.</li>
+          <li>해산물은 신선도가 중요해요.</li>
+          <li>선물용은 산지 직송을 확인하세요.</li>
+          <li>제주 여행 때 시장을 둘러보세요.</li>
+        </ul>
+        <h3>🍊 응원 카운터</h3>
+        <div id="count">0</div>
+        <button id="btn">+2</button>
+      </aside>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 제주 특산물 이야기 · 제주의 맛을 널리 알립니다 🌊</p>
+    </footer>
   </div>
 
-  <div class="part card">
-    <span class="tag">카드 (응원 카운터)</span>
-    <div style="font-size:2.5rem">0</div>
-    <div class="part" style="display:inline-block;padding:6px 10px"><span class="tag">버튼</span><button>+2</button></div>
-  </div>
-
-  <div class="part card"><span class="tag">카드 (홍보 문구 × 10개)</span>제주대학교 홍보 문구 카드가 세로로 반복됩니다.</div>
-
-  <div class="part ft"><span class="tag">푸터</span>&copy; 2026 내 취향 카드</div>
-
-  <table>
-    <tr><th>부품</th><th>index.html 상태</th></tr>
-    <tr><td>헤더</td><td>있음 (&lt;header&gt;)</td></tr>
-    <tr><td>카드</td><td>있음 (11개)</td></tr>
-    <tr><td>버튼</td><td>있음 (+2 버튼 1개)</td></tr>
-    <tr><td>목록</td><td>있음 (메뉴의 ul/li 4개)</td></tr>
-    <tr><td>탭</td><td>메뉴 바가 탭 역할, 클릭 전환 기능은 없음</td></tr>
-    <tr><td>입력창</td><td class="no">없음</td></tr>
-  </table>
+  <script>
+    let count = 0;
+    const el = document.getElementById('count');
+    document.getElementById('btn').addEventListener('click', () => {
+      count += 2;
+      el.textContent = count;
+    });
+  </script>
 </body>
 </html>
