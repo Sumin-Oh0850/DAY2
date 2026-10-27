@@ -43,9 +43,9 @@
     #chat-open { position: fixed; right: 20px; bottom: 20px; border-radius: 999px; padding: 14px 20px; box-shadow: 0 2px 8px rgba(0,0,0,.3); z-index: 10; }
     #chat-panel { position: fixed; right: 20px; bottom: 80px; width: 360px; max-width: calc(100vw - 40px); height: 520px; max-height: calc(100vh - 100px); background: #fff; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.35); overflow: hidden; display: none; z-index: 10; }
     #chat-panel iframe { width: 100%; height: 100%; border: 0; }
-    .cat-btn { width: 150px; height: 150px; margin-top: 18px; border-radius: 50%; background: #fff; color: #e36414; font-weight: bold; font-size: 1.1rem; line-height: 1.4; padding: 0; box-shadow: 0 4px 12px rgba(0,0,0,.25); display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; transition: transform .15s; }
-    .cat-btn:hover { background: #fff1de; transform: scale(1.06); }
-    .cat-btn .big { font-size: 2.6rem; line-height: 1; }
+    #cat-open { position: fixed; left: 20px; bottom: 20px; width: 110px; height: 110px; border-radius: 50%; white-space: pre-line; padding: 0; font-size: 1rem; font-weight: bold; line-height: 1.3; box-shadow: 0 4px 12px rgba(0,0,0,.35); z-index: 10; }
+    #cat-panel { position: fixed; left: 20px; bottom: 140px; width: min(760px, calc(100vw - 40px)); height: min(640px, calc(100vh - 160px)); background: #fff; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.35); overflow: hidden; display: none; z-index: 10; }
+    #cat-panel iframe { width: 100%; height: 100%; border: 0; }
     img { max-width: 100%; }
     @media (min-width: 701px) and (max-width: 960px) {
       .content { grid-template-columns: 3fr 2fr; }
@@ -55,8 +55,8 @@
       header { padding: 22px 12px; }
       header h1 { font-size: 1.4rem; }
       header p { font-size: .9rem; }
-      .cat-btn { width: 120px; height: 120px; font-size: .95rem; }
-      .cat-btn .big { font-size: 2.2rem; }
+      #cat-open { left: 12px; bottom: 12px; width: 90px; height: 90px; font-size: .9rem; z-index: 20; }
+      #cat-panel { left: 0; bottom: 0; width: 100vw; height: 100vh; height: 100dvh; border-radius: 0; }
       nav ul { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
       nav a { padding: 12px 6px; font-size: .95rem; }
       .content { grid-template-columns: 1fr; }
@@ -80,7 +80,6 @@
     <header>
       <h1>🍊 제주 특산물 이야기 🌴</h1>
       <p>바람과 돌, 바다가 키워 낸 제주의 맛을 소개합니다</p>
-      <button id="cat-open" class="cat-btn"><span class="big">📂</span><span>카테고리<br>화면 열기</span></button>
     </header>
 
     <nav>
@@ -160,25 +159,32 @@
 
   <button id="chat-open">💬 에이전트와 채팅</button>
   <div id="chat-panel"></div>
+  <button id="cat-open">📂<br>카테고리</button>
+  <div id="cat-panel"></div>
 
   <script>
-    document.getElementById('cat-open').addEventListener('click', () => {
-      window.open('reactive.html', '_blank');
-    });
-
-    const chatBtn =document.getElementById('chat-open');
-    const chatPanel = document.getElementById('chat-panel');
-    chatBtn.addEventListener('click', () => {
-      const open = chatPanel.style.display === 'block';
-      if (!open && !chatPanel.firstChild) {
-        const f = document.createElement('iframe');
-        f.src = 'agent.html';
-        f.title = '제주 특산물 에이전트';
-        chatPanel.appendChild(f);
-      }
-      chatPanel.style.display = open ? 'none' : 'block';
-      chatBtn.textContent = open ? '💬 에이전트와 채팅' : '✕ 닫기';
-    });
+    const toggles = [];
+    function setupToggle(btnId, panelId, src, title, label) {
+      const btn = document.getElementById(btnId);
+      const panel = document.getElementById(panelId);
+      const close = () => { panel.style.display = 'none'; btn.textContent = label; };
+      toggles.push(close);
+      btn.addEventListener('click', () => {
+        const open = panel.style.display === 'block';
+        toggles.forEach(c => c());
+        if (open) return;
+        if (!panel.firstChild) {
+          const f = document.createElement('iframe');
+          f.src = src;
+          f.title = title;
+          panel.appendChild(f);
+        }
+        panel.style.display = 'block';
+        btn.textContent = '✕ 닫기';
+      });
+    }
+    setupToggle('chat-open', 'chat-panel', 'agent.html', '제주 특산물 에이전트', '💬 에이전트와 채팅');
+    setupToggle('cat-open', 'cat-panel', 'reactive.html', '카테고리', '📂\n카테고리');
 
     let count = 0;
     const el = document.getElementById('count');
